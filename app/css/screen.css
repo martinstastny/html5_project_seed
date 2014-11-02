@@ -1,0 +1,739 @@
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+/* line 2, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/box-sizing */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 7, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/box-sizing */
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 7, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/base/html */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/base/body */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 20, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/html5/blocks */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 9, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/html5/inline-blocks */
+audio, canvas, progress, video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/*
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/html5/audio */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/*
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/* line 7, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/html5/hidden */
+[hidden], template {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/links/fix-background */
+a {
+  background-color: transparent; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/links/fix-outline */
+a:active, a:hover {
+  outline: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/abbr */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/fix-bolder */
+b, strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/dfn */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/headings */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/mark */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/small */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/sub-and-sup */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 13, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/sub-and-sup */
+sup {
+  top: -0.5em; }
+
+/* line 17, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/text-level/sub-and-sup */
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/embed/img */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow not hidden in IE 8/9/10/11.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/embed/svg */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/grouping/figure */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/grouping/hr */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/grouping/pre */
+pre {
+  overflow: auto; }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/* line 8, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/grouping/fix-monospace */
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/* line 12, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fix-font */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fix-overflow */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 9, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fix-text-transform */
+button, select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 12, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/buttons */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/disabled */
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fix-focus-inner */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fix-line-height */
+input {
+  line-height: normal; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 10, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/checkbox-and-radio */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 8, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/number */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 7, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/search */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 21, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/search */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/fieldset */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/legend */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/textarea */
+textarea {
+  overflow: auto; }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 6, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/forms/optgroup */
+optgroup {
+  font-weight: bold; }
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/tables/fix-cell-spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 11, /Users/Martin/Code/html5_project_seed/app/bower_components/modularized-normalize-scss/tables/fix-cell-spacing */
+th, td {
+  padding: 0; }
+
+/* line 1, /Users/Martin/Code/html5_project_seed/app/sass/utils/helpers */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+/* State classes */
+/* line 8, /Users/Martin/Code/html5_project_seed/app/sass/utils/helpers */
+.is-hidden {
+  display: none; }
+
+/* line 11, /Users/Martin/Code/html5_project_seed/app/sass/utils/helpers */
+.is-visible {
+  display: block; }
+
+/* Clearfix classes */
+/* Retina Sprites for Compass
+ * by:              Gaya Kessler
+ * last update:     10/25/13
+ *
+ * Usage:
+ * 1. create two folders in your image directory (in this case 'icons' and 'icons-2x').
+ * 2. adjust the foldernames defined below if you use different names.
+ * 3. create sprite images for pixel ratio 1 screens and put them in the first folder.
+ * 4. create sprite images for pixel ratio 2 screens and put them in the second folder, use the same filenames.
+ * 5. use the sprite-image in your Sass/Scss using: '@include use-sprite(<sprite-name>)' */
+/* Retina Backgrounds for Compass
+ * by:              Gaya Kessler
+ * last update:     10/25/13
+ *
+ * Usage:
+ * 1. create background image for pixel ratio 1 screens and put it somewhere in your images folder.
+ * 2. create background image for pixel ratio 2 screens and put it somewhere in your images folder.
+ * 3. include the background-image property in your Sass/Scss using: '@include background-retina(<ratio-1-imagefile>, <ratio-2-imagefile>)' */
+/* BODY SETUP */
+/* line 5, /Users/Martin/Code/html5_project_seed/app/sass/base/base */
+html, body {
+  height: 100%;
+  min-height: 100%; }
+
+/* line 9, /Users/Martin/Code/html5_project_seed/app/sass/base/base */
+body {
+  color: #000;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased; }
+
+/*
+ * LINKS */
+/* line 20, /Users/Martin/Code/html5_project_seed/app/sass/base/base */
+a {
+  color: #000; }
+  /* line 22, /Users/Martin/Code/html5_project_seed/app/sass/base/base */
+  a:hover {
+    color: #000; }
+
+/* line 26, /Users/Martin/Code/html5_project_seed/app/sass/base/base */
+a, a:focus, a:hover, a:active {
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+/* line 36, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+input, textarea, select {
+  border-radius: 0; }
+
+/* line 40, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+form {
+  width: 100%;
+  border: 0;
+  padding: 0; }
+
+/* line 45, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+fieldset {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #cdcdcd; }
+
+/* line 51, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+.field-wrap {
+  margin: 0;
+  display: block; }
+
+/* line 55, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+.form-field {
+  width: 100%;
+  float: left;
+  margin: 0 0 1em 0;
+  padding: 0; }
+
+/* line 62, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+label {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 0.375em; }
+
+/* line 68, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+input[type]:not([type=checkbox]):not([type=radio]):not([type=submit]) {
+  color: #000;
+  border: 1px solid #cdcdcd;
+  width: 100%;
+  height: 32px;
+  line-height: 1.2857142857em;
+  font-size: 0.875em;
+  padding: 0 0.375em 0 0.375em; }
+
+/* line 77, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+input[type="submit"], button[type="submit"] {
+  border: 0;
+  background: #cdcdcd;
+  color: #000;
+  font-size: 1.125em;
+  margin: 0;
+  padding: 0.375em 1.25em 0.375em 1.25em; }
+
+/* line 86, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+.checkbox label {
+  cursor: pointer; }
+
+/* line 89, /Users/Martin/Code/html5_project_seed/app/sass/components/forms */
+select {
+  width: 100%;
+  display: block; }
+
+/* line 5, /Users/Martin/Code/html5_project_seed/app/sass/components/lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1em; }
+
+/* line 2, /Users/Martin/Code/html5_project_seed/app/sass/components/breadcrumb */
+.breadcrumb span {
+  margin: 0px 15px 0px 15px; }
+
+/* Text classes */
+/* Display styles */
+/* Headings */
+/* line 1, /Users/Martin/Code/html5_project_seed/app/sass/theme/headings */
+h1 {
+  font-size: 2em; }
+
+/* line 4, /Users/Martin/Code/html5_project_seed/app/sass/theme/headings */
+h2 {
+  font-size: 1.5em; }
+
+/* line 7, /Users/Martin/Code/html5_project_seed/app/sass/theme/headings */
+h3 {
+  font-size: 1.25em; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/headings */
+h4 {
+  font-size: 1em; }
+
+/* line 13, /Users/Martin/Code/html5_project_seed/app/sass/theme/headings */
+h5 {
+  font-size: 0.875em; }
+
+/* line 2, /Users/Martin/Code/html5_project_seed/app/sass/theme/images */
+figure {
+  margin: 0; }
+
+/* line 5, /Users/Martin/Code/html5_project_seed/app/sass/theme/images */
+figure > img {
+  display: block; }
+
+/* line 9, /Users/Martin/Code/html5_project_seed/app/sass/theme/images */
+img {
+  max-width: 100%;
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+/* line 1, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+header {
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 57.4468085106%;
+  background: yellow; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  header:last-child {
+    margin-right: 0; }
+
+/* line 5, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.row {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+  /* line 15, /Users/Martin/Code/html5_project_seed/app/bower_components/bourbon/dist/addons/clearfix */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 15, /Users/Martin/Code/html5_project_seed/app/bower_components/bourbon/dist/addons/clearfix */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-1 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 6.3829787234%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-1:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-2 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 14.8936170213%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-2:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-3 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 23.4042553191%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-3:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-4 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 31.914893617%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-4:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-5 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 40.4255319149%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-5:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-6 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 48.9361702128%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-6:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-7 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 57.4468085106%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-7:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-8 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 65.9574468085%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-8:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-9 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 74.4680851064%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-9:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-10 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 82.9787234043%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-10:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-11 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 91.4893617021%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-11:last-child {
+    margin-right: 0; }
+
+/* line 10, /Users/Martin/Code/html5_project_seed/app/sass/theme/header */
+.col-12 {
+  min-height: 200px;
+  margin-bottom: 1em;
+  background: gray;
+  float: left;
+  display: block;
+  margin-right: 2.1276595745%;
+  width: 100%; }
+  /* line 85, /Users/Martin/Code/html5_project_seed/app/bower_components/neat/app/assets/stylesheets/grid/span-columns */
+  .col-12:last-child {
+    margin-right: 0; }
+
+
+/*# sourceMappingURL=screen.css.map */

@@ -1,0 +1,29 @@
+/* BODY SETUP
+
+
+
+html, body
+  height: 100%
+  min-height: 100%
+
+body
+  color: $body-font-color
+  background: $body-bg
+  font-family: $font-family
+  line-height: em($base-line-height)
+  @if $font-smoothing == true
+    -webkit-font-smoothing: antialiased // Webkit font rendering
+
+/*
+ * LINKS
+
+a
+  color: $base-link-color
+  &:hover
+    color: $base-link-hover-color
+
+// Reseting links disable showing outlines on desktop browsers and mobile devices
+
+a, a:focus, a:hover, a:active
+  outline: 0
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)

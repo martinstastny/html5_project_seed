@@ -1,0 +1,116 @@
+@function strip-unit($num)
+  @return $num / ($num * 0 + 1)
+
+// Retun pixels to EM
+
+@function em($px, $context: $base-font-size)
+  @return $px / $context * 1em
+
+@function convert-to-em($value, $base-value: $base-font-size)
+  $value: strip-unit($value) / strip-unit($base-value) * 1em
+  @if $value == 0em
+    $value: 0
+  @return $value
+
+@function emcalc($values, $base-value: $base-font-size)
+  $max: length($values)
+  @if $max == 1
+    @return convert-to-em(nth($values, 1), $base-value)
+  $emValues: ()
+  @for $i from 1 through $max
+    $emValues: append($emValues, convert-to-em(nth($values, $i), $base-value))
+  @return $emValues
+
+@function percent($width, $container-width: $max-width)
+  @return $width / $container-width * 100%
+
+=padding($pt: 0, $pr: 0, $pb: 0, $pl: 0)
+  padding: $pt $pr $pb $pl
+
+=margin($mt: 0, $mr: 0, $mb: 0, $ml: 0)
+  padding: $mt + px $mr + px $mb + px $ml + px
+
+=breakpoint($media)
+  @if $media == phone
+    @media only screen and (max-width: $phone)
+      @content
+  @else if $media == tablet
+    @media only screen and (min-width: $phone) and (max-width: $tablet)
+      @content
+  @else if $media == desktop
+    @media only screen and (min-width: $desktop)
+      @content
+  @else if $media == widedesktop
+    @media only screen and (min-width: $widedesktop)
+      @content
+
+/* Retina Sprites for Compass
+ * by:              Gaya Kessler
+ * last update:     10/25/13
+ *
+ * Usage:
+ * 1. create two folders in your image directory (in this case 'icons' and 'icons-2x').
+ * 2. adjust the foldernames defined below if you use different names.
+ * 3. create sprite images for pixel ratio 1 screens and put them in the first folder.
+ * 4. create sprite images for pixel ratio 2 screens and put them in the second folder, use the same filenames.
+ * 5. use the sprite-image in your Sass/Scss using: '@include use-sprite(<sprite-name>)'
+
+//Sprite mixin, works perfectly with standard defines
+//=use-sprite($sprite)
+//  background: sprite-url($icons) sprite-position($icons, $sprite) no-repeat
+//  @extend %icon
+//  height: image-height(sprite-file($icons, $sprite))
+//  width: image-width(sprite-file($icons, $sprite))
+//  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3 / 2), (min--moz-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 144dpi)
+//    background: sprite-url($icons-2x) round(nth(sprite-position($icons-2x, $sprite), 1) / 2) round(nth(sprite-position($icons-2x, $sprite), 2) / 2) no-repeat
+//    background-size: image-width(sprite-path($icons-2x)) / 2 image-height(sprite-path($icons-2x)) / 2
+//    height: image-height(sprite-file($icons-2x, $sprite)) / 2
+//    width: image-width(sprite-file($icons-2x, $sprite)) / 2
+
+/* Retina Backgrounds for Compass
+ * by:              Gaya Kessler
+ * last update:     10/25/13
+ *
+ * Usage:
+ * 1. create background image for pixel ratio 1 screens and put it somewhere in your images folder.
+ * 2. create background image for pixel ratio 2 screens and put it somewhere in your images folder.
+ * 3. include the background-image property in your Sass/Scss using: '@include background-retina(<ratio-1-imagefile>, <ratio-2-imagefile>)'
+
+=background-retina($normal, $retina)
+  background-image: image-url($normal)
+  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3 / 2), (min--moz-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 144dpi)
+    background-image: image-url($retina)
+    background-size: image-width($retina) / 2 image-height($retina) / 2
+
+// keyframes mixin
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+
+  @-moz-keyframes #{$name}
+    @content
+
+  @-ms-keyframes #{$name}
+    @content
+
+  @keyframes #{$name}
+    @content
+
+=font-size($font-size)
+  font-size: $font-size
+  font-size: $font-size / $base-font-size * 1rem
+
+=old-ie
+  // Only use this content if we're dealing with old IE
+  @if $old-ie
+    @content
+
+=placeholder
+  \::-webkit-input-placeholder
+    @content
+  \:-moz-placeholder
+    @content
+  \::-moz-placeholder
+    @content
+  \:-ms-input-placeholder
+    @content

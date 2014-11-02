@@ -1,0 +1,43 @@
+// Navigation bars
+
+%nav-horizontal
+  list-style: none
+  @extend %clearfix
+  li
+    float: left
+    display: inline
+    a
+      display: block
+      zoom: 1
+  li:last-child a, li.last a
+    margin-right: 0
+
+// Vertical navigation
+
+%nav-vertical
+  list-style: none
+  > li
+    display: inline
+    > a
+      display: block
+
+// Block navigationw
+
+%nav-block
+  list-style: none
+  white-space: nowrap
+  > li
+    float: left
+    > a
+      display: block
+
+// Fits parent container width
+
+%nav-fit
+  list-style: none
+  display: table
+  width: 100%
+  li
+    display: table-cell
+    a
+      display: block

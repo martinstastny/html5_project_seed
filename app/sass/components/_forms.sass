@@ -1,0 +1,104 @@
+// FORMS
+
+// Placeholders
+
+%form-inline
+  .field-wrap, .checkbox, .radio, select
+    display: inline
+    display: inline-block
+
+//Form
+
+// Fieldset
+$form-fieldset-padding: emcalc(16px) !default
+$form-fieldset-margin: emcalc(0px) !default
+$form-fieldset-border: 1px solid #cdcdcd !default
+
+// Fields
+$form-wrap-margin: emcalc(0) !default
+$form-field-margin: emcalc(0 0 16px 0) !default
+$form-field-padding: emcalc(0) !default
+
+// Inputs
+
+// Inputs [email, text, phone,etc..]
+$input-text-color: #000 !default
+$input-text-border: 1px solid #cdcdcd !default
+$input-text-font-size: emcalc(14px) !default
+$input-text-height: 32px !default
+$input-text-line-height: emcalc(18px, 14px) !default
+$input-text-padding: emcalc(0 6px 0 6px) !default
+
+// Input Submit
+$input-submit-border: 0 !default
+$input-submit-color: #000 !default
+$input-submit-bg: #cdcdcd !default
+$input-submit-margin: emcalc(0) !default
+$input-submit-padding: emcalc(6px 20px 6px 20px) !default
+$input-submit-font-size: emcalc(18px) !default
+
+//Label
+$label-color: #000 !default
+$label-mb: emcalc(6px) !default
+
+//iOS input border reset
+
+input, textarea, select
+  border-radius: 0
+
+// Form
+
+form
+  width: 100%
+  border: 0
+  padding: 0
+
+fieldset
+  margin: $form-fieldset-margin
+  padding: $form-fieldset-padding
+  border: $form-fieldset-border
+
+// Form fields
+
+.field-wrap
+  margin: $form-wrap-margin
+  display: block
+
+.form-field
+  width: 100%
+  float: left
+  margin: $form-field-margin
+  padding: $form-field-padding
+
+// Label
+
+label
+  color: $label-color
+  cursor: pointer
+  display: block
+  margin-bottom: $label-mb
+
+input[type]:not([type=checkbox]):not([type=radio]):not([type=submit])
+  color: $input-text-color
+  border: $input-text-border
+  width: 100%
+  height: $input-text-height
+  line-height: $input-text-line-height
+  font-size: $input-text-font-size
+  padding: $input-text-padding
+
+input[type="submit"], button[type="submit"]
+  border: $input-submit-border
+  background: $input-submit-bg
+  color: $input-submit-color
+  font-size: $input-submit-font-size
+  margin: $input-submit-margin
+  padding: $input-submit-padding
+
+.checkbox
+  label
+    cursor: pointer
+
+select
+  width: 100%
+  display: block

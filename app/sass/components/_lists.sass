@@ -1,0 +1,30 @@
+$list-ul-mb: emcalc(16px) !default
+$list-item-mb: emcalc(10px) !default
+$list-item-pl: emcalc(16px) !default
+
+ul
+  list-style: none
+  padding: 0
+  margin-bottom: $list-ul-mb
+
+%list-bullet
+  list-style: disc
+  padding-left: $list-item-pl
+  li
+    margin-bottom: $list-item-mb
+
+%list-square
+  list-style: square
+  padding-left: $list-item-pl
+  li
+    margin-bottom: $list-item-mb
+
+%list-inline
+  li
+    display: inline
+
+%list-custom
+  li
+    background: $list-item-bg
+    padding-left: $list-item-pl
+    margin-bottom: $list-item-mb

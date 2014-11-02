@@ -1,0 +1,49 @@
+{
+  "name": "html5_project_seed",
+  "version": "1.0.0",
+  "description": "HTML5 project seed setup for front-end",
+  "main": "index.js",
+  "dependencies": {
+    "grunt-browser-sync": "^1.5.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-imagemin": "^0.9.1",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-copy": "^0.1.0",
+    "grunt-htmlmin": "^0.1.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-filerev": "^2.1.1",
+    "grunt-usemin": "^2.5.1",
+    "grunt-sass": "^0.16.1",
+    "grunt": "^0.4.5",
+    "grunt-notify": "^0.3.1",
+    "time-grunt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinstastny/html5_project_seed.git"
+  },
+  "keywords": [
+    "html5",
+    "seed",
+    "css3",
+    "bourbon",
+    "grunt",
+    "coffeescript",
+    "sass"
+  ],
+  "author": "Martin Stastny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martinstastny/html5_project_seed/issues"
+  },
+  "homepage": "https://github.com/martinstastny/html5_project_seed"
+}
