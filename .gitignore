@@ -8,5 +8,6 @@ app/bower_components
 .sass-cache
 *.pyc
 dist/bower_components
+dist/*
 *.map
 .tmp

@@ -1,12 +1,19 @@
 module.exports = (grunt) ->
   "use strict"
 
-  ###
-    Settings object
-    - please set your folders here, paths are relative to Gruntfile.js
-  ###
-
   require('time-grunt')(grunt)
+
+  # Loading tasks for processes that you just currently need from [node_modules]
+  require('jit-grunt')(grunt, {
+    useminPrepare: 'grunt-usemin'
+    concurrent: 'grunt-concurrent'
+    filerev: 'grunt-filerev'
+  })
+
+  ###
+     Settings object
+     - please set your folders here, paths are relative to Gruntfile.js
+  ###
 
   settings =
     app: "app" # Development Folder name that holds all the files
@@ -15,28 +22,30 @@ module.exports = (grunt) ->
     cssDir: "css" # Folder name that holds css files
     jsDir: "js" # Folder name that holds js files
     imgDir: "images"
-    filesToCopy: "{html,txt,pdf,mp4,webm,mpeg,ogg,mp3,wav,eot,ttf,otf,woff,svg}"
+    coffeeDir: "coffee"
+    filesToCopy: "{html,txt,pdf,mp4,webm,mpeg,ogg,mp3,wav,eot,ttf,otf,woff,svg,twig}"
 
 
   grunt.initConfig
     config: settings
     pkg: grunt.file.readJSON("package.json")
 
-    # Watch task
+
+  # Watch task
 
     watch:
       sass:
-        files: ["<%= config.app %>/**/*.{scss,sass}"]
-        tasks: ["sass:dev"]
+        files: ["<%= config.app %>/<%= config.sassDir %>/*.{scss,sass}"]
+        tasks: ["newer:sass:dev"]
         options:
           nospawn: true
 
       coffee:
-        files: ["<%= config.app %>/coffee/*.coffee"]
-        tasks: ["coffee:dev"]
+        files: ["<%= config.app %>/<%= config.coffeeDir %>/*.coffee"]
+        tasks: ["newer:coffee:dev"]
 
 
-    # SASS compilation
+  # SASS compilation
 
     sass:
       dev:
@@ -73,7 +82,7 @@ module.exports = (grunt) ->
         ]
 
 
-    # CoffeeScript task
+  # CoffeeScript task
 
     coffee:
       options:
@@ -82,14 +91,13 @@ module.exports = (grunt) ->
 
       dev:
         expand: true
-        flatten: true
         cwd: "<%= config.app %>/coffee"
         src: ["*.coffee"]
         dest: "<%= config.app %>/<%= config.jsDir %>"
         ext: ".js"
 
 
-    # Live reloading browser on desktop and mobile devices
+  # Live reloading browser on desktop and mobile devices
 
     browserSync:
       bsFiles:
@@ -101,11 +109,14 @@ module.exports = (grunt) ->
 
       options:
         watchTask: true
-        server:
-          baseDir: "./app/"
+        proxy: 'reiss.dev' # Set to your hostname e.g. 'reiss.dev'
+
+        # Uncomment these if you want BrowserSync to run server for you
+        #server:
+        #  baseDir: "./app/"
 
 
-    # Image compression
+  # Image compression
 
     imagemin:
       options:
@@ -115,12 +126,12 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: "<%= config.app %>"
-          src: ["**/*.{png,jpg,jpeg,gif,bpm,svg}"]
+          src: ["**/*.{png,jpg,jpeg,gif,bpm,svg}", '!**/bower_components/**/*']
           dest: "<%= config.dist %>"
         ]
 
 
-    # Uglify and compress js, used by useminPrepare
+  # Uglify and compress js, used by useminPrepare
 
     uglify:
       options:
@@ -128,14 +139,14 @@ module.exports = (grunt) ->
         mangle: true
 
 
-    # Delete files and folders
+  # Delete files and folders
 
     clean:
       dist:
         src: ["<%= config.dist %>/*"]
 
 
-    # Copy files
+  # Copy files
 
     copy:
       dist:
@@ -146,19 +157,20 @@ module.exports = (grunt) ->
           src: [
             '.htaccess'
             '**/*.<%= config.filesToCopy %>'
+            '!**/bower_components/**/*' # Ignore bower_components folder and do not copy to disribution
           ]
         ]
 
 
-    # Minify HTML
+  # Minify HTML
 
     htmlmin:
       dist:
         options:
           collapseBooleanAttributes: true
           collapseWhitespace: false
-          removeComments: true
-          removeAttributeQuotes: true
+          removeComments: false
+          removeAttributeQuotes: false
           removeCommentsFromCDATA: true
           removeEmptyAttributes: true
           removeOptionalTags: true
@@ -167,39 +179,39 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: "<%= config.app %>"
-          src: "**/*.html"
+          src: ['**/*.html', '!**/bower_components/**/*']
           dest: "<%= config.dist %>"
         ]
 
-    # Build minified and optimised scripts and replace their paths inside HTML
+
+  # Build minified and optimised scripts and replace their paths inside HTML
 
     useminPrepare:
-      html: "<%= config.app %>/{,*/}*.html"
+      html: "<%= config.app %>/index.html"
       options:
         dest: "<%= config.dist %>"
 
 
     usemin:
-      html: ['<%= config.dist %>/{,*/}*.html']
+      html: ['<%= config.dist %>/*.{twig,html}']
       css: ['<%= config.dist %>/<%= config.cssDir %>/{,*/}*.css']
       options:
         assetsDirs: ["<%= config.dist %>"]
 
 
-  # Loading tasks
-  grunt.loadNpmTasks "grunt-sass"
-  grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-browser-sync"
-  grunt.loadNpmTasks "grunt-contrib-imagemin"
-  grunt.loadNpmTasks "grunt-contrib-clean"
-  grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.loadNpmTasks "grunt-contrib-copy"
-  grunt.loadNpmTasks "grunt-notify"
-  grunt.loadNpmTasks "grunt-contrib-concat"
-  grunt.loadNpmTasks "grunt-contrib-uglify"
-  grunt.loadNpmTasks "grunt-contrib-htmlmin"
-  grunt.loadNpmTasks "grunt-contrib-cssmin"
-  grunt.loadNpmTasks "grunt-usemin"
+  # File versioning - renaming files to unique names - prevent caching
+
+    filerev:
+      options:
+        algorithm: 'md5'
+        length: 8
+
+      files:
+        src: [
+          '<%= config.dist %>/css/**/*.css'
+          '<%= config.dist %>/js/**/*.js'
+        ]
+
 
 
   # Default grunt task
@@ -207,21 +219,24 @@ module.exports = (grunt) ->
     "sass:dev"
     "browserSync"
     "watch"
-    "watch:staticFiles"
   ]
 
-  # Build task
 
+  # Build task
   grunt.registerTask "build", [
     "clean:dist"
     "sass:dist"
+    "coffee:dev"
     "useminPrepare"
     "concat:generated"
     "cssmin:generated"
     "uglify:generated"
     "copy:dist"
     "imagemin:dist"
-    "usemin"
+    "filerev"
     "htmlmin:dist"
+    "usemin"
   ]
+
+
   return
